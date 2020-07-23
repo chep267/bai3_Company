@@ -1,29 +1,50 @@
-package bai5;
+package dongcode.bai3;
 
-import java.text.ParseException;
 import java.util.Scanner;
 
-public class test {
-    public static void main(String[] arg) throws ParseException {
+class test {
+
+    public static void main(String[] arg) {
+
         Scanner sc = new Scanner(System.in);
-        Company a = new Company();
+        Company cp = new Company("BKAV");
+
         //in ds nv:
+        int n=0;
         System.out.print("\nDanh Sach nhan vien la: ");
-        if(a.employees[0] == null){
+
+        if( cp.ds[0] == null ) {
             System.out.print("\nCong ty chua co nhan vien nao!\nBan hay nhap: ");
             System.out.print("\n\tBan muon nhap bao nhieu nhan vien: ");
-            for (int i = 0; i < 10; i++) {
-                a.employees[i].nhap();
+            n = sc.nextInt();
+            for (int i = 0; i < n; i++) {
+                cp.ds[i] = new Employee(i+1, "Nam "+(i+1), 1998, 1, "chuyen vien", 0.2+i, 1000);
+               // a.ds[i+1] = new Employee(j, "Linh", 1999, 0);
+            }
+
+            for (int i = 0; i < n; i++) {
+                cp.ds[i].display();
+                System.out.print("\n--------------------------\n");
+            }
+
+        }
+        else {
+            for (int i = 0; i < n; i++) {
+                cp.ds[i].display();
+                System.out.print("\n--------------------------\n");
             }
         }
 
         //in ra cu the:
-        int id;
-        System.out.print("\nNhap id nhan vien: "); id = sc.nextInt();
-        for (int i = 0; i <10; i++) {
-            if(a.employees[i].id == id){
-                a.employees[i].display();
+        System.out.print("\n---------------------------\n");
+
+        System.out.print("\nNhap id nhan vien: "); n = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            if(cp.ds[i].id == n){
+                cp.ds[i].display();
             }
         }
+
+
     }
 }
