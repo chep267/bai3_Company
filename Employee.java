@@ -8,22 +8,26 @@ import java.util.Scanner;
 
 class Employee extends Person {
 
+    int id; // ma nhan vien
     Date dateJoin; //ngay bat dau lam viec
     //String date;
     String position; //vi tri nhan vien
     double salaryLevel; //Bac luong
     double basicSalary; //Luong co ban
 
+
+
     Employee() {}
 
-    Employee(int ms, String ten, int ns, int gd, String vt, double sr, double basicsr) {
+    Employee(int ms, String ten, int ns, Gender gd, Married mr, String pos, double srLever, double basicsr) {
         id = ms;
         name = ten;
         yearOfBirth = ns;
         gender = gd;
-        position = vt;
+        married = mr;
+        position = pos;
         basicSalary = basicsr;
-        salaryLevel = sr;
+        salaryLevel = srLever;
     }
 
     //tra ve id:
@@ -52,14 +56,25 @@ class Employee extends Person {
     }
 
     @Override
-    int getGender() {
-        return gender;
+    String getGender() {
+        return gender.getName();
     }
 
     @Override
-    void setGender(int s) {
-        gender = s;
+    void setGender(Gender gd) {
+        gender = gd;
     }
+
+    @Override
+    String getMarried() {
+        return married.getName();
+    }
+
+    @Override
+    void setMarried(Married mr) {
+        married = mr;
+    }
+
 
     //tra ve thu nhap:
     public double getIncome() {
@@ -78,11 +93,12 @@ class Employee extends Person {
 
     //nhap:
     public void nhap()  {
+
         Scanner sc = new Scanner(System.in);
         System.out.print("\n\tDinh danh: "); id = sc.nextInt();
         System.out.print("\n\tTen: "); name = sc.nextLine();
         System.out.print("\n\tNam sinh : "); yearOfBirth = sc.nextInt();
-        System.out.print("\n\tGioi tinh : "); gender = sc.nextInt();
+        System.out.print("\n\tGioi tinh : "); int n = sc.nextInt();
         System.out.print("\n\tTinh trang hon nhan ");
         System.out.print("\n\tNgay bat dau lam viec: ");
         String d; d = sc.nextLine();
@@ -101,18 +117,12 @@ class Employee extends Person {
     //in:
     public void display() {
         System.out.print("\n\tMa nhan vien: "+ id);
-        System.out.print("\n\tTen: "+name);
-        System.out.print("\n\tNam sinh : "+yearOfBirth);
-
-        if( gender==0 ) {
-            System.out.print("\n\tGioi tinh : Nu");
-        }else if( gender==1 ) {
-            System.out.print("\n\tGioi tinh : Nam");
-        }
-
-        System.out.print("\n\tTinh trang hon nhan: chua ket hon.");
+        System.out.print("\n\tTen: "+getName());
+        System.out.print("\n\tNam sinh : "+getyearOfBirth());
+        System.out.print("\n\tGioi tinh : "+getGender());
+        System.out.print("\n\tTinh trang hon nhan: "+getMarried());
         System.out.print("\n\tNgay bat dau lam viec: 2020");
         System.out.print("\n\tVi tri: "+ position);
-        System.out.print("\n\tThu nhap: "+ getIncome());
+        System.out.print("\n\tThu nhap: "+ getIncome()+" $");
     }
 }

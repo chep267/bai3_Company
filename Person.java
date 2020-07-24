@@ -3,26 +3,40 @@ package dongcode.bai3;
 
 abstract class Person {
 
-    int id; // ma nhan vien
     String name; // ho ten
     int yearOfBirth; //nam sinh
-    int gender; // gioi tinh
+    // gioi tinh
+    Gender gender;
+    Married married;
 
-
+    //Lay id
     abstract int getId();
 
+    //Lay ten
     abstract String getName();
 
+    //Sua ten
     abstract void setName(String s);
 
+    //Lay nam sinh
     abstract int getyearOfBirth();
 
+    //Sua nam sinh
     abstract void setyearOfBirth(int s);
 
-    abstract int getGender();
+    //Lay gioi tinh
+    abstract String getGender();
 
-    abstract void setGender(int s);
+    //sua gioi tinh
+    abstract void setGender(Gender gd);
 
+    //Lay tinh trang hon nhan
+    abstract String getMarried();
+
+    //sua gioi tinh
+    abstract void setMarried(Married mr);
+
+    //In thong tin
     abstract void display();
 }
 

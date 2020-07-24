@@ -1,18 +1,20 @@
 package dongcode.bai3;
 
-import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 
-class Company extends Employee {
+class Company {
 
     String name; //ten cty
     Date dateCreate; //ngay sang lap cty
-    Employee[] ds = new Employee[10];
+    ArrayList<Employee> ds = new ArrayList<Employee>(10);
+
 
     Company( String ten) {
         name = ten;
     }
-    // ten cong ty:
+
+    // lay ten cong ty:
     public String get_name() {
         return name;
     }
@@ -27,23 +29,20 @@ class Company extends Employee {
 
     //them 1 nv moi:
     public void addNewEmployee(Employee e)  {
-        int dem=0;
-        for( int i=0; i<10; i++) {
-            if( ds[i]==null ){
-                ds[i] = e;
-                dem++;
-                break;
-            }
-        }
-        if( dem==0 ) {
-            info();
-        }
-        else {
+        if ( ds.size() < 10 ) {
+            ds.add(e);
             System.out.print("\nThem nhan vien thanh cong!");
         }
+        else {
+            info();
+            System.out.print("\nKhong the them nhan vien moi.");
+        }
+
     }
 
     public void info() {
-        System.out.print("\nCong ty da tuyen du nhan vien!");
+        if ( ds.size() == 10 ) {
+            System.out.print("\nThong bao: Cong ty da tuyen du nhan vien!");
+        }
     }
 }
