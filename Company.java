@@ -6,7 +6,7 @@ import java.util.Date;
 class Company {
 
     String name; //ten cty
-    Date dateCreate; //ngay sang lap cty
+    Date createDate; //ngay sang lap cty
     ArrayList<Employee> ds = new ArrayList<Employee>(10);
 
 
@@ -15,7 +15,7 @@ class Company {
     }
 
     // lay ten cong ty:
-    public String get_name() {
+    public String getName() {
         return name;
     }
 
